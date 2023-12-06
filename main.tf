@@ -27,7 +27,7 @@ resource "azurerm_resource_group" "rg1" {
 }
 
 resource "azurerm_storage_account" "storagetf1" {
-  depends_on = [ azurerm_resource_group.rg1 ]
+  depends_on = [ azurerm_resource_group.rg1 ]     // depends on will run code parelle means TF will create RG first  and then storage ac.
   name                     = "jatinstorage1"
   resource_group_name      = azurerm_resource_group.rg1.name
   location                 = azurerm_resource_group.rg1.location
