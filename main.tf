@@ -7,9 +7,19 @@ terraform {
   }
 }
 
+terraform {
+  backend "azurerm" {
+    resource_group_name  = "jatinrg1"
+    storage_account_name = "jatinstorage1"
+    container_name       = "tfstatefile"
+    key                  = "prod.terraform.tfstate"
+  }
+}
+
 provider "azurerm" {
   features {}
 }
+
 
 resource "azurerm_resource_group" "rg1" {
   name     = "jatinrg1"
